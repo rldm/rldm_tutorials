@@ -1,3 +1,5 @@
+This notebook provides a simple example of how to setup an MDP and use Value Iteration to find the optimal policy and the expected values.
+
 Install and run instructions
 
 - Install jupyter, pymdptoolbox, and numpy
