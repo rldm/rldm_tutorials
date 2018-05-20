@@ -28,10 +28,10 @@ def create_mdp(reward_in,trans_in):
     R = np.ravel(np.array([[r_s, r_s, r_s, r_g], 
                                 [r_s, 100, r_s, r_b], 
                                 [r_s, r_s, r_s, r_s]]))
-    Rprime = np.tile(R,(4,len(R),len(R)))
+    Rprime = np.tile(R,(4,len(R),1))
 
     #terminal states are state 3 and state 7
-    for state = [3,7]:
+    for state in [3,7]:
         Rprime[:,state,state]=0
 
 
