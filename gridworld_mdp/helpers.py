@@ -28,6 +28,11 @@ def create_mdp(reward_in,trans_in):
     R = np.ravel(np.array([[r_s, r_s, r_s, r_g], 
                                 [r_s, 100, r_s, r_b], 
                                 [r_s, r_s, r_s, r_s]]))
+    Rprime = np.tile(R,(4,len(R),len(R)))
+
+    #terminal states are state 3 and state 7
+    for state = [3,7]:
+        Rprime[:,state,state]=0
 
 
     ###########################
@@ -77,7 +82,7 @@ def create_mdp(reward_in,trans_in):
                 else:
                     #otherwise we do end up in the new state
                     T[intended_action, state, new_state] +=  curr_prob
-    return T,R
+    return T,Rprime
 
 def get_q_values(mdp):
     """
